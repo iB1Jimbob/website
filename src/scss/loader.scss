@@ -1,0 +1,48 @@
+.loaderBg {
+    opacity: 0.8;
+    background-color: white;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    overflow: hidden;
+}
+
+.loader {
+    position: absolute;
+    top: 30%;
+}
+
+.loader text {
+    stroke-dasharray: 500;
+    stroke-dashoffset: 500;
+    animation-name: dash;
+    animation-duration: 3s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    user-select: none;
+}
+
+@keyframes dash {
+    0% {
+        stroke-dasharray: 500;
+    }
+    25% {
+        stroke-dasharray: 250;
+    }
+    50% {
+        stroke-dashoffset: 0;
+    }
+    75% {
+        stroke-dasharray: 250;
+    }
+    100% {
+        stroke-dasharray: 500;
+    }
+}

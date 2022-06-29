@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Title -->
+        <title>My portfolio</title>
+
+        <!-- Favicon -->
+        <link rel="shortcut icon" href="./favicon.ico">
+    
+        <!-- Meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+        <!-- Stylesheets -->
+        <link rel="stylesheet" href="./css/style.css">
+        <link rel="stylesheet" href="./css/loader.css">
+    
+        <!-- JavaScript -->
+        <script src="./js/script.js" defer></script>
+
+        <!-- Fontawesome -->
+        <script src="https://kit.fontawesome.com/f193e1f3eb.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <div class="socials">
+            <a href="https://discord.gg/Km9hkAA" target="_blank" class="social-item"><i class="fa-brands fa-discord"></i></a>
+            <a href="https://github.com/iB1Jimbob" target="_blank" class="social-item"><i class="fa-brands fa-github"></i></a>
+            <a href="https://open.spotify.com/user/31hjn4gnqpmdce35cz5nutq77vse?si=e0cd920975f74a98" target="_blank" class="social-item"><i class="fa-brands fa-spotify"></i></a>
+            <a href="https://twitter.com/derjimbob" target="_blank" class="social-item"><i class="fa-brands fa-twitter"></i></a>
+            <a href="https://www.instagram.com/j1mi925/" target="_blank" class="social-item"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+        <ul class="navbar">
+            <li class="item"><a href="#landingpage" class="navbar-link">Start</a></li>
+            <li class="item"><a href="#tools" class="navbar-link">Tools</a></li>
+            <li class="item"><a href="#contact" class="navbar-link">Contact</a></li>
+        </ul>
+        <div id="landingpage">
+            <div class="msg">
+                <h1>Hello, world!</h1>
+                <h2>I'm Jimi<span class="discord-tag"></span></h2>
+            </div>
+            <a class="scrolldown" href="#tools"><i class="fa-solid fa-circle-arrow-down"></i></a>
+        </div>
+        <div id="tools">
+            <div class="content">
+                <h1>My tools</h1>
+                <h2>These are the tools I use to build my apps:</h2>
+
+                <ul class="tool-images">
+                    <li data-name="HTML"><img src="./img/tools/html.svg"></li>
+                    <li data-name="CSS"><img src="./img/tools/css.svg"></li>
+                    <li data-name="JavaScript"><img src="./img/tools/js.svg"></li>
+                    <li data-name="TypeScript"><img src="./img/tools/ts.svg"></li>
+                    <li data-name="Deno"><img src="./img/tools/deno.svg"></li>
+                    <li data-name="Node.js"><img src="./img/tools/nodejs.svg"></li>
+                    <li data-name="Electron"><img src="./img/tools/electron.svg"></li>
+                    <li data-name="Firebase"><img src="./img/tools/firebase.svg"></li>
+                    <li data-name="Heroku"><img src="./img/tools/heroku.svg"></li>
+                    <li data-name="NPM"><img src="./img/tools/npm.svg"></li>
+                    <li data-name="Git"><img src="./img/tools/git.svg"></li>
+                </ul>
+            </div>
+        </div>
+        <div id="contact">
+            <div class="content">
+                <h1>Contact me</h1>
+                <div class="form">
+                    <input placeholder="Your name" id="nameInput">
+                    <input placeholder="Your E-mail" id="emailInput">
+                    <textarea placeholder="Your message" id="messageInput"></textarea>
+                    <button class="submit" onclick="new Contact().send()">Send</button>
+                    <p class="feedback"></p>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
