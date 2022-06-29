@@ -25,6 +25,7 @@ var Contact = /** @class */ (function () {
     }
     Contact.prototype.send = function () {
         var _this = this;
+        loader.load();
         if (!this.name.value || !this.email.value || !this.message.value)
             return this.feedback('Please fill out all fields.', 'error');
         if (!this.emailRegex.test(this.email.value))
@@ -46,6 +47,7 @@ var Contact = /** @class */ (function () {
             else {
                 _this.feedback('There was an unknown error. Please try again or contact me otherwise.', 'error');
             }
+            loader.stopLoading();
         });
     };
     Contact.prototype.feedback = function (message, type) {

@@ -34,6 +34,7 @@ class Contact {
     }
 
     public send(): void {
+        loader.load();
         if (!this.name.value || !this.email.value || !this.message.value) return this.feedback('Please fill out all fields.', 'error');
 
         if (!this.emailRegex.test(this.email.value)) return this.feedback('Please provide a valid E-mail adress.', 'error');
@@ -55,6 +56,7 @@ class Contact {
                 } else {
                     this.feedback('There was an unknown error. Please try again or contact me otherwise.', 'error');
                 }
+                loader.stopLoading();
             });
     }
 
