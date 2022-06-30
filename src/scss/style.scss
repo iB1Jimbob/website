@@ -223,6 +223,7 @@ ul.navbar {
     background-color: $b3;
     height: 100%;
     display: flex;
+    overflow-y: hidden;
     
     .content {
         margin-top: 10%;

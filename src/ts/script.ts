@@ -68,6 +68,21 @@ class Contact {
     }
 }
 
+window.addEventListener('scroll', () => {
+    const elements:any = document.querySelectorAll('.content');
+
+    for (const element of elements) {
+        const windowHeight = window.innerHeight;
+        const elementTop = element.getBoundingClientRect().top;
+        const revealPoint = 150;
+
+        if (elementTop < windowHeight - revealPoint) {
+            element.classList.remove('hidden');
+        } else {
+            element.classList.add('hidden');
+        }
+    }
+});
 
 function getDiscord() {
     loader.load();

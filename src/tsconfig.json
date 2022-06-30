@@ -4,6 +4,6 @@
         "module": "system",
         "outDir": "./js/",
         "lib": ["ES6", "DOM", "ES2017"],
-        "target": "ES5"
+        "target": "ES2015"
     }
 }
