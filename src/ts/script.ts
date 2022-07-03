@@ -25,16 +25,18 @@ class Contact {
     private message: HTMLInputElement;
     private feedbackElement: HTMLInputElement;
     private emailRegex: RegExp;
+    private loader: Loader;
     constructor() {
         this.name = document.querySelector('#contact .content .form #nameInput');
         this.email = document.querySelector('#contact .content .form #emailInput');
         this.message = document.querySelector('#contact .content .form #messageInput');
         this.feedbackElement = document.querySelector('#contact .content .form .feedback');
         this.emailRegex = /^\S+@\S+\.\S+$/;
+        this.loader = new Loader();
     }
 
     public send(): void {
-        loader.load();
+        this.loader.load();
         if (!this.name.value || !this.email.value || !this.message.value) return this.feedback('Please fill out all fields.', 'error');
 
         if (!this.emailRegex.test(this.email.value)) return this.feedback('Please provide a valid E-mail adress.', 'error');
@@ -64,7 +66,7 @@ class Contact {
         feedback.classList.add(type);
         feedback.innerText = message;
         this.feedbackElement.innerHTML = feedback.outerHTML;
-        loader.stopLoading();
+        this.loader.stopLoading();
     }
 }
 
