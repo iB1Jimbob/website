@@ -1,4 +1,5 @@
 class Loader {
+    svgData;
     constructor() {
         this.svgData = `<svg height="100" width="100" stroke="#2A4A73" stroke-width="5" class="loader"><defs><style>@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono:wght@700&display=swap');</style></defs><text style="font-family: 'Ubuntu Mono'; font-weight: normal; font-style: normal" x="25" y="90" fill="none" font-size="100">J</text></svg>`;
     }
@@ -15,6 +16,11 @@ class Loader {
     }
 }
 class Contact {
+    name;
+    email;
+    message;
+    feedbackElement;
+    emailRegex;
     constructor() {
         this.name = document.querySelector('#contact .content .form #nameInput');
         this.email = document.querySelector('#contact .content .form #emailInput');

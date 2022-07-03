@@ -56,7 +56,6 @@ class Contact {
                 } else {
                     this.feedback('There was an unknown error. Please try again or contact me otherwise.', 'error');
                 }
-                loader.stopLoading();
             });
     }
 
@@ -65,6 +64,7 @@ class Contact {
         feedback.classList.add(type);
         feedback.innerText = message;
         this.feedbackElement.innerHTML = feedback.outerHTML;
+        loader.stopLoading();
     }
 }
 
