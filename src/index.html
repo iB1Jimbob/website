@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<<!DOCTYPE html>
 <html lang="en">
     <head>
         <!-- Title -->
@@ -18,6 +18,7 @@
     
         <!-- JavaScript -->
         <script src="./js/script.js" defer></script>
+        <script src="./js/slider.js" defer></script>
 
         <!-- Fontawesome -->
         <script src="https://kit.fontawesome.com/f193e1f3eb.js" crossorigin="anonymous"></script>
@@ -33,10 +34,10 @@
         <ul class="navbar">
             <li class="item"><a href="#landingpage" class="navbar-link">Start</a></li>
             <li class="item"><a href="#tools" class="navbar-link">Tools</a></li>
+            <li class="item"><a href="#projects" class="navbar-link">Projects</a></li>
             <li class="item"><a href="#contact" class="navbar-link">Contact</a></li>
         </ul>
         <div id="landingpage">
-            <div class="status"></div>
             <div class="msg">
                 <h1>Hello, world!</h1>
                 <h2>I'm Jimi<span class="discord-tag"></span></h2>
@@ -62,17 +63,56 @@
                 </ul>
             </div>
         </div>
+        <div id="projects">
+            <div class="content hidden">
+                <h1>My projects</h1>
+                <h2>These are some of the projects that I'm currently working on:</h2>
+                <div class="slider">
+                    <div class="btns">
+                        <i class="fa-solid fa-circle-chevron-left" id="prev"></i>
+                        <i class="fa-solid fa-circle-chevron-right active" id="next"></i>
+                    </div>
+                    <div class="item horst" onclick="window.open('https://horstlang.org')">
+                        <h1>Horst</h1>
+                        <h2>A simple, open-source scripting language</h2>
+                        <img src="./img/projects/horst.svg">
+                    </div>
+                    <div class="item cranberry" onclick="window.open('https://github.com/Cranberry-App')">
+                        <h1>Cranberry</h1>
+                        <h2>A open-source chat app</h2>
+                        <img src="./img/projects/cranberry.svg">
+                    </div>
+                    <div class="item jimbot" onclick="window.open('https://bot.jimii.xyz')">
+                        <h1>JimBOT</h1>
+                        <h2>A multi-purpose Discord bot</h2>
+                        <img src="./img/projects/jimbot.svg">
+                    </div>
+                </div>
+            </div>
+        </div>
         <div id="contact">
             <div class="content hidden">
                 <h1>Contact me</h1>
-                <div class="form">
+                <div class="form online">
                     <input placeholder="Your name" id="nameInput">
                     <input placeholder="Your E-mail" id="emailInput">
                     <textarea placeholder="Your message" id="messageInput"></textarea>
                     <button class="submit" onclick="new Contact().send()">Send</button>
                     <p class="feedback"></p>
                 </div>
+                <div class="info">
+                    <i class="fa-solid fa-circle-info"></i>
+                    <div class="message">
+                        <h1>Border meanings</h1>
+                        <ul>
+                            <li><span style="color:green">Green: </span>Online</li>
+                            <li><span style="color: darkgrey;">Grey: </span>Offline</li>
+                            <li><span style="color: red;">Red: </span>Busy</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </body>
 </html>
+>

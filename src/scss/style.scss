@@ -156,6 +156,7 @@ ul.navbar {
             font-size: 3em;
             color: $c2;
             margin-bottom: 0;
+            text-transform: uppercase;
         }
 
         h2 {
@@ -217,13 +218,154 @@ ul.navbar {
     }
 }
 
-// Contact:
+// Projects:
+#projects {
+    background-color: $b4;
+    height: 100%;
+    display: flex;
+    overflow-y: hidden;
+    position: relative;
 
+    .content {
+        margin-top: 5%;
+        margin-left: 20%;
+        width: 40%;
+
+        h1 {
+            font-family: 'Heebo', sans-serif;
+            font-size: 3em;
+            color: $base;
+            margin-bottom: 0;
+            text-transform: uppercase;
+        }
+
+        h2 {
+            font-family: 'Fira Sans', sans-serif;
+            margin-top: 0;
+            color: $base;
+            font-size: 1.5em;
+        }
+
+
+        .slider {
+            border: solid 3px $base;
+            border-radius: 20px;
+            height: 50%;
+            width: 90%;
+            position: relative;
+            margin-left: 5%;
+            display: flex;
+            flex-direction: row;
+            overflow: hidden;
+
+            .btns {
+                width: 100%;
+                flex: 0;
+                
+                i {
+                    font-size: 3em;
+                    position: absolute;
+                    top: 45%;
+                    transition: .5s;
+                    opacity: .7;
+                    z-index: 50;
+
+                    &#prev {
+                        left: 10px;
+                    }
+
+                    &#next {
+                        right: 10px;
+                    }
+
+                    &.active {
+                        color: $c2;
+
+                        &:hover {
+                            font-size: 3.5em;
+                            cursor: pointer;
+                        }
+                    }
+
+                    &:not(.active) {
+                        color: rgb(177, 177, 177);
+
+                        &:hover {
+                            cursor: not-allowed;
+                        }
+                    }
+                }
+            }
+
+            .item {
+                height: 100%;
+                width: 100%;
+                min-width: 100%;
+                border-radius: 17px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                flex: 0;
+                cursor: pointer;
+                transition: .5s;
+
+                h1 {
+                    text-transform: none;
+                }
+
+                img {
+                    height: 30%;
+                    width: auto;
+                }
+                
+                &.horst {
+                    background-color: #14213D;
+
+                    h1 {
+                        color: #FCA311;
+                    }
+
+                    h2, p {
+                        color: #E5E5E5;
+                    }
+                }
+
+                &.cranberry {
+                    background-color: #8A1F33;
+
+                    h1, h2, p {
+                        color: white;
+                    }
+
+                    img {
+                    }
+                }
+
+                &.jimbot {
+                    background-color: snow;
+
+
+                    h1, h2, p {
+                        color: #2C2F33;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Contact:
 #contact {
+    $online: green;
+    $offline: darkgrey;
+    $dnd: red;
+
     background-color: $b3;
     height: 100%;
     display: flex;
     overflow-y: hidden;
+    position: relative;
     
     .content {
         margin-top: 10%;
@@ -235,11 +377,30 @@ ul.navbar {
             font-size: 3em;
             color: $c2;
             margin-bottom: 0;
+            text-transform: uppercase;
         }
+
         .form {
             display: flex;
             flex-direction: column;
             margin-top: 25px;
+            padding: 10px;
+            padding-bottom: 0;
+            border-style: solid;
+            border-width: 5px;
+            border-radius: 10px;
+
+            &.online {
+                border-color: $online;
+            }
+
+            &.offline {
+                border-color: $offline;
+            }
+
+            &.dnd {
+                border-color: $dnd;
+            }
 
             input, textarea {
                 font-size: 1em;
@@ -289,6 +450,58 @@ ul.navbar {
 
                     &.success {
                         color: lightgreen;
+                    }
+                }
+            }
+        }
+
+        .info {
+            display: flex;
+
+            i:hover + .message {
+                opacity: 1;
+            }
+
+            i {
+                color: white;
+                margin: 10px;
+                margin-left: 0;
+                font-size: 1.5em;
+                position: relative;
+                transition: .3s;
+                display: inline-flex;
+                overflow: hidden;
+                height: 1em;
+
+                &:hover {
+                    cursor: pointer;
+                    color: $c2;
+                }
+            }
+
+            .message {
+                opacity: 0;
+                background-color: $c2;
+                padding: 10px;
+                border: solid 3px black;
+                border-radius: 10px;
+                flex: 0;
+                min-width: 150px;
+                margin-top: 10px;
+                transition: .3s;
+
+                h1 {
+                    color: black;
+                    font-family: 'Fira sans', sans-serif;
+                    text-transform: none;
+                    font-size: 1em;
+                    margin-top: 0;
+                }
+
+                ul {
+                    margin: 0;
+                    li {
+                        font-family: 'Ubuntu', sans-serif;
                     }
                 }
             }
