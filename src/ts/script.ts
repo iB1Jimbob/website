@@ -107,16 +107,8 @@ function onPageLoad() {
             }
         }).then(req => req.json()).then(data => {
             const statusElement:HTMLElement = document.querySelector('#contact .content .form');
-            if (data.dnd) {
-                statusElement.classList.remove('online', 'offline');
-                statusElement.classList.add('dnd');
-            } else if (data.online) {
-                statusElement.classList.remove('dnd', 'offline');
-                statusElement.classList.add('online');
-            } else if (data.offline) {
-                statusElement.classList.remove('dnd', 'online');
-                statusElement.classList.add('offline');
-            }
+            statusElement.classList.remove('offline', 'online', 'dnd');
+            statusElement.classList.add(data.status);
 
             loader.stopLoading();
         });
