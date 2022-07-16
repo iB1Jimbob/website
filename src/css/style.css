@@ -12,6 +12,16 @@ body {
   overflow-x: hidden;
 }
 
+::-moz-selection {
+  background: #EB459E;
+  color: #fff;
+}
+
+::selection {
+  background: #EB459E;
+  color: #fff;
+}
+
 ul.navbar {
   display: -webkit-box;
   display: -ms-flexbox;

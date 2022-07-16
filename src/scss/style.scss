@@ -9,8 +9,7 @@ $b4: #77739A;
 $c1: #9B93E8;
 $c2: #e5d4e7;
 $blurple: #5865F2;
-
-// Keyframes:
+$highlight: #EB459E;
 
 html {
     height: 100%;
@@ -23,6 +22,11 @@ body {
     margin: 0;
     height: 100%;
     overflow-x: hidden;
+}
+
+::selection {
+    background: $highlight;
+    color: #fff;
 }
 
 // Navbar:
