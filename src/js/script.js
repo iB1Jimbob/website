@@ -87,17 +87,7 @@ function onPageLoad() {
         method: 'GET'
     }).then(req => req.json()).then(data => {
         discordTagElement.innerText = `#${data.user.discriminator}`;
-        fetch('https://jimiswebsite-api.herokuapp.com/status', {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        }).then(req => req.json()).then(data => {
-            const statusElement = document.querySelector('#contact .content .form');
-            statusElement.classList.remove('offline', 'online', 'dnd');
-            statusElement.classList.add(data.status);
-            loader.stopLoading();
-        });
+        loader.stopLoading();
     });
 }
 const loader = new Loader();
