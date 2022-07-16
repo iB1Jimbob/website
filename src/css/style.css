@@ -421,3 +421,54 @@ ul.navbar .item:hover {
 #contact .content .form p.feedback span.success {
   color: lightgreen;
 }
+
+.footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+}
+.footer .gradient {
+  width: 100%;
+  height: 100px;
+  position: absolute;
+  background: -webkit-gradient(linear, left top, left bottom, from(transparent), to(#383746));
+  background: linear-gradient(transparent, #383746);
+  top: -100px;
+  border-bottom: dotted 4px white;
+}
+.footer .text {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+.footer .text p {
+  color: #e5d4e7;
+  font-family: "Ubuntu", sans-serif;
+  font-size: 1.3em;
+  margin: 1%;
+}
+.footer .text p a {
+  text-decoration: underline;
+  color: blueviolet;
+}
