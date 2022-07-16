@@ -1,0 +1,9 @@
+{
+    "compileOnSave": true,
+    "compilerOptions": {
+        "module": "system",
+        "outDir": "./src/js/",
+        "lib": ["ES6", "DOM", "ES2017"],
+        "target": "ESNext"
+    }
+}
