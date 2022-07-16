@@ -357,10 +357,6 @@ ul.navbar {
 
 // Contact:
 #contact {
-    $online: green;
-    $offline: darkgrey;
-    $dnd: red;
-
     background-color: $b3;
     height: 100%;
     display: flex;
@@ -386,21 +382,6 @@ ul.navbar {
             margin-top: 25px;
             padding: 10px;
             padding-bottom: 0;
-            border-style: solid;
-            border-width: 5px;
-            border-radius: 10px;
-
-            &.online {
-                border-color: $online;
-            }
-
-            &.offline {
-                border-color: $offline;
-            }
-
-            &.dnd {
-                border-color: $dnd;
-            }
 
             input, textarea {
                 font-size: 1em;
@@ -450,58 +431,6 @@ ul.navbar {
 
                     &.success {
                         color: lightgreen;
-                    }
-                }
-            }
-        }
-
-        .info {
-            display: flex;
-
-            i:hover + .message {
-                opacity: 1;
-            }
-
-            i {
-                color: white;
-                margin: 10px;
-                margin-left: 0;
-                font-size: 1.5em;
-                position: relative;
-                transition: .3s;
-                display: inline-flex;
-                overflow: hidden;
-                height: 1em;
-
-                &:hover {
-                    cursor: pointer;
-                    color: $c2;
-                }
-            }
-
-            .message {
-                opacity: 0;
-                background-color: $c2;
-                padding: 10px;
-                border: solid 3px black;
-                border-radius: 10px;
-                flex: 0;
-                min-width: 150px;
-                margin-top: 10px;
-                transition: .3s;
-
-                h1 {
-                    color: black;
-                    font-family: 'Fira sans', sans-serif;
-                    text-transform: none;
-                    font-size: 1em;
-                    margin-top: 0;
-                }
-
-                ul {
-                    margin: 0;
-                    li {
-                        font-family: 'Ubuntu', sans-serif;
                     }
                 }
             }
