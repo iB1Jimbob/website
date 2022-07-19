@@ -472,7 +472,12 @@ ul.navbar {
 
             a {
                 text-decoration: underline;
-                color: blueviolet;
+                font-weight: bold;
+                color: $c2;
+
+                &:hover {
+                    color: white;
+                }
             }
         }
     }

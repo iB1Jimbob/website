@@ -480,5 +480,9 @@ ul.navbar .item:hover {
 }
 .footer .text p a {
   text-decoration: underline;
-  color: blueviolet;
+  font-weight: bold;
+  color: #e5d4e7;
+}
+.footer .text p a:hover {
+  color: white;
 }
