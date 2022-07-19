@@ -1,13 +1,15 @@
 class Loader {
-    private svgData: string;
-    constructor() {
-        this.svgData = `<svg height="100" width="100" stroke="#2A4A73" stroke-width="5" class="loader"><defs><style>@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono:wght@700&display=swap');</style></defs><text style="font-family: 'Ubuntu Mono'; font-weight: normal; font-style: normal" x="25" y="90" fill="none" font-size="100">J</text></svg>`;
-    }
+    constructor() {}
 
     public load(): void {
         const background = document.createElement('div');
         background.classList.add('loaderBg');
-        background.innerHTML = this.svgData;
+        
+        const loader = document.createElement('div');
+        loader.classList.add('loader');
+        loader.innerHTML = '<div class="shape triangle"></div><div class="shape circle"></div><div class="shape square"></div>';
+
+        background.appendChild(loader);
 
         document.body.appendChild(background);
         document.body.style.overflowY = 'hidden';
