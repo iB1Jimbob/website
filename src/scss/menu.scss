@@ -1,0 +1,44 @@
+// Imports:
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans&family=Heebo:wght@700&family=Ubuntu&family=Ubuntu+Mono&display=swap');
+
+// Color variables:
+$base: #383746;
+$b3: #5A2B4D;
+$b4: #77739A;
+$c2: #e5d4e7;
+
+.rcmenu {
+    display: none;
+    flex-direction: column;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    background-color: $base;
+    border: solid 5px $c2;
+    width: min-content;
+    position: absolute;
+
+    li {
+        padding: 10px;
+        padding-right: 75px;
+
+        a {
+            font-family: 'Ubuntu', sans-serif;
+            text-decoration: none;
+            color: $c2;
+        }
+
+        &:hover {
+            background-color: $b3;
+        }
+
+
+        &.browser {
+            background-color: $base;
+
+            &:hover {
+                background-color: $b4;
+            }
+        }
+    }
+}
