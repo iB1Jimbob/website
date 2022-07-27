@@ -24,7 +24,7 @@ jobs:
         run: tsc
       
       - name: List files
-        run: ls src/js/
+        run: cat src/js/script.js
 
       - name: Remove TS directory
         run: rm -r src/ts/
