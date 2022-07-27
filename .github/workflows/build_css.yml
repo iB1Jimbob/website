@@ -1,0 +1,54 @@
+name: Build CSS from SCSS
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build_css:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout source Git branch
+        uses: actions/checkout@v2
+        with:
+          ref: main
+          fetch-depth: 10
+          submodules: true
+      
+      - name: Make destination directory for compiled CSS
+        run: mkdir -vp  /tmp/website/css
+
+      - name: Compile CSS from SCSS files
+        uses: gha-utilities/sass-build@v0.4.9
+        with:
+          source: |
+            src/scss/loader.scss
+            src/scss/menu.scss
+            src/scss/style.scss
+          destination: |
+            /tmp/website/css/loader.css
+            /tmp/website/css/menu.css
+            /tmp/website/css/style.css
+      
+      - name: Checkout destination Git branch
+        uses: actions/checkout@v2
+        with:
+          ref: deploy
+          fetch-depth: 1
+
+      - name: Move compiled CSS to path within deploy branch
+        run: mv /tmp/website/css src/
+
+      - name: Add and Commit changes to deploy branch
+        run: |
+          git config --local user.email 'action@github.com'
+          git config --local user.name 'GitHub Action'
+          git add src/css/*
+          git commit -m 'Updated compiled CSS files'
+
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: deploy
