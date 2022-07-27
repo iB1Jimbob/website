@@ -58,9 +58,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: List files
-        run: ls
-        
+      - name: Checkout git source branch
+        uses: actions/checkout@master
+
       - name: Deploy to Firebase
         uses: w9jds/firebase-action@master
         with:
