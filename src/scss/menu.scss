@@ -3,41 +3,66 @@
 
 // Color variables:
 $base: #383746;
+$b2: #3a3a4d;
 $b3: #5A2B4D;
 $b4: #77739A;
+$c1: #9B93E8;
 $c2: #e5d4e7;
+$highlight: #EB459E;
 
 .rcmenu {
-    display: none;
-    flex-direction: column;
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: start;
     background-color: $base;
-    border: solid 5px $c2;
     width: min-content;
+    border: solid 3px $c2;
+    margin: 0;
+    user-select: none;
     position: absolute;
-
-    li {
-        padding: 10px;
-        padding-right: 75px;
-
-        a {
-            font-family: 'Ubuntu', sans-serif;
-            text-decoration: none;
-            color: $c2;
+    
+    ul {
+        list-style: none;
+        padding: 0;
+        height: auto;
+        margin: 0;
+        
+        li {
+            padding: 5px;
         }
-
-        &:hover {
-            background-color: $b3;
+        
+        &.rc-socials {
+        
+            .social-item {
+                padding-right: 5px;
+                padding-bottom: 0;
+                font-size: 1.2em;
+                
+                a {
+                    text-decoration: none;
+                    color: $c2;
+                }
+                
+                &:hover a {
+                    color: $c1;
+                }
+            }
         }
-
-
-        &.browser {
-            background-color: $base;
-
-            &:hover {
-                background-color: $b4;
+            
+        &.rc-nav {
+            font-size: 1.5em;
+            border-left: dashed 3px $b4;
+            
+            .nav-item {
+                &:hover {
+                    background-color: $b3;
+                }
+                
+                a {
+                    text-decoration: none;
+                    color: $c2;
+                    font-family: 'Ubuntu', sans-serif;
+                }
             }
         }
     }

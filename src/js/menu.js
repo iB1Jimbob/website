@@ -1,7 +1,7 @@
 class Menu {
     element;
     constructor() {
-        this.element = document.querySelector('ul.rcmenu');
+        this.element = document.querySelector('div.rcmenu');
     }
     hide() {
         this.element.style.display = 'none';
@@ -17,3 +17,6 @@ document.oncontextmenu = (e) => {
     e.preventDefault();
     menu.element.style.display === 'flex' ? menu.hide() : menu.show(e.pageX, e.pageY);
 };
+document.querySelectorAll('div.rcmenu ul li').forEach(element => {
+    element.addEventListener('click', () => { menu.hide(); });
+});

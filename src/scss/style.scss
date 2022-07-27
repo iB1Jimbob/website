@@ -29,6 +29,19 @@ body {
     color: #fff;
 }
 
+// Reveal items on scroll:
+.content {
+    position: relative;
+    transform: translateY(150px);
+    opacity: 0;
+    transition: all 2s ease;
+}
+
+.content:not(.hidden) {
+    transform: translateY(0);
+    opacity: 1;
+}
+
 // Navbar:
 ul.navbar {
     display: flex;

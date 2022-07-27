@@ -1,10 +1,32 @@
-name: Firebase Continuous Deployment
+name: Sass Build
+uses: gha-utilities/sass-build@v0.4.9
 
 on:
   push:
     branches: [ main ]
 
 jobs:
+  build_css:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@master
+
+      - name: Make destination directory for compiled CSS
+      run: mkdir -vp /src/css
+
+      - name: Compile CSS from SCSS files
+      uses: gha-utilities/sass-build@v0.4.9
+      with:
+        source: |
+          /src/scss/loader.scss
+          /src/scss/menu.scss
+          /src/scss/style.scss
+        destination: |
+          /src/css/loader.css
+          /src/css/menu.css
+          /src/css/style.css
+  
   deploy:
     runs-on: ubuntu-latest
     steps:
