@@ -77,8 +77,10 @@ jobs:
           name: js_folder
           path: src/js
 
-      - name: List files
-        run: ls -R
+      - name: Remove SCSS & TS files
+        run: |
+          rm -rf src/scss
+          rm -rf src/ts
 
       - name: Deploy to Firebase
         uses: w9jds/firebase-action@master
