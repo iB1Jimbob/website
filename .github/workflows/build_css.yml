@@ -34,7 +34,7 @@ jobs:
           fetch-depth: 1
 
       - name: Move compiled CSS to path within deploy branch
-        run: mv /tmp/css src/
+        run: mv /tmp/css/* src/css/
 
       - name: Add and Commit changes to deploy branch
         run: |
