@@ -44,12 +44,6 @@ jobs:
             /tmp/css/menu.css
             /tmp/css/style.css
 
-      - name: Checkout destination Git branch
-        uses: actions/checkout@v2
-        with:
-          ref: deploy
-          fetch-depth: 1
-
       - name: Move compiled CSS to folder
         run: mv /tmp/css/* src/css
 
