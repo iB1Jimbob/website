@@ -5,29 +5,12 @@ on:
     branches: [ main ]
 
 jobs:
-  build:
+  build_css:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout git source branch
         uses: actions/checkout@master
-
-      - name: Install node.js v12
-        uses: actions/setup-node@v1
-        with:
-          node-version: 12
-      
-      - name: Install tsc
-        run: npm install -g typescript
-
-      - name: Compile TypeScript
-        run: tsc
-      
-      - name: List files
-        run: cat src/js/script.js
-
-      - name: Remove TS directory
-        run: rm -r src/ts/
 
       - name: Make destination directory for compiled CSS
         run: mkdir -vp /tmp/css
@@ -48,7 +31,33 @@ jobs:
         run: |
           sudo mkdir -vp src/css
           sudo mv /tmp/css/* src/css
+  
+  build_js:
+    runs-on: ubuntu-latest
 
+    steps:
+      - name: Checkout git source branch
+        uses: actions/checkout@master
+
+      - name: Install node.js v12
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      
+      - name: Install tsc
+        run: npm install -g typescript
+
+      - name: Compile TypeScript
+        run: tsc
+      
+      - name: Remove TS directory
+        run: rm -r src/ts/
+
+  deploy:
+    needs: [ build_css, build_js ]
+    runs-on: ubuntu-latest
+
+    steps:
       - name: Deploy to Firebase
         uses: w9jds/firebase-action@master
         with:
