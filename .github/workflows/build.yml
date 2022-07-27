@@ -1,4 +1,4 @@
-name: Build CSS from SCS
+name: Build SCSS & TypeScript
 
 on:
   push:
@@ -11,6 +11,17 @@ jobs:
     steps:
       - name: Checkout git source branch
         uses: actions/checkout@master
+
+      - name: Install node.js v12
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      
+      - name: Install tsc
+        run: npm install -g typescript
+
+      - name: Compile TypeScript
+        run: tsc
 
       - name: Make destnation directory for compiled CSS
         run: mkdir -vp /tmp/css
@@ -49,6 +60,3 @@ jobs:
         with:
           github_token: ${{ secrets.GH_TOKEN }}
           branch: deploy
-      
-      - name: Debug for me
-        run: ls

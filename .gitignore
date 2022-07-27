@@ -67,4 +67,4 @@ node_modules/
 
 .vscode/
 src/css/
-.build_css.yml
+src/js/

@@ -3,7 +3,7 @@ let current = 0;
 
 document.querySelectorAll('.slider .btns').forEach(button => {
     button.addEventListener('click', event => {
-        let elem = event.target;
+        let elem: any = event.target;
         if (!elem.classList.contains('active')) return;
         
         if (elem.id === 'prev') {
@@ -21,7 +21,7 @@ document.querySelectorAll('.slider .btns').forEach(button => {
             document.querySelector('#next').classList.add('active');
         }
 
-        document.querySelectorAll('.slider .item').forEach(div => {
+        document.querySelectorAll('.slider .item').forEach((div: HTMLDivElement) => {
             let transform = current * -100;
             div.style.transform = `translateX(${transform}%)`;
         });
