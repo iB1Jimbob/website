@@ -23,11 +23,11 @@ jobs:
       - name: Compile TypeScript
         run: tsc
 
+      - name: Remove TS directory
+        run: rm -r src/ts/
+
       - name: Make destination directory for compiled CSS
         run: mkdir -vp /tmp/css
-
-      - name: Read files
-        run: ls src/
 
       - name: Compile SCSS files to CSS
         uses: gha-utilities/sass-build@v0.4.9
@@ -47,5 +47,12 @@ jobs:
           ref: deploy
           fetch-depth: 1
 
-      - name: Move compiled CSS to path within deploy branch
+      - name: Move compiled CSS to folder
         run: mv /tmp/css/* src/css
+
+      - name: Deploy to Firebase
+        uses: w9jds/firebase-action@master
+        with:
+          args: deploy --only hosting
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
