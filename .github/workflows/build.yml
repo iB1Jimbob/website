@@ -1,4 +1,4 @@
-name: Build SCSS & TypeScript
+name: Build SCSS & TypeScript, then deploy to Firebase
 
 on:
   push:
@@ -45,18 +45,6 @@ jobs:
           fetch-depth: 1
 
       - name: Move compiled CSS to path within deploy branch
-        run: mv /tmp/css/* src/css/
-
-      - name: Add and Commit changes to deploy branch
         run: |
-          git config --local user.email 'action@github.com'
-          git config --local user.name 'GitHub Action'
-          git add -f .
+          mv /tmp/css/* src/css
           ls src/
-          git commit -m 'Updated compiled CSS files'
-
-      - name: Push changes
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.GH_TOKEN }}
-          branch: deploy
