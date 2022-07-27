@@ -25,3 +25,5 @@ document.oncontextmenu = (e: MouseEvent) => {
 document.querySelectorAll('div.rcmenu ul li').forEach(element => {
     element.addEventListener('click', () => { menu.hide(); });
 });
+
+// Test test
