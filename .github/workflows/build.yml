@@ -27,10 +27,11 @@ jobs:
             /tmp/css/menu.css
             /tmp/css/style.css
 
-      - name: Move compiled CSS to folder
-        run: |
-          sudo mkdir -vp src/css
-          sudo mv /tmp/css/* src/css
+      - name: Upload CSS folder as an artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: css_folder
+          path: /tmp/css/
   
   build_js:
     runs-on: ubuntu-latest
@@ -49,9 +50,12 @@ jobs:
 
       - name: Compile TypeScript
         run: tsc
-      
-      - name: Remove TS directory
-        run: rm -r src/ts/
+
+      - name: Upload JS folder as an artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: js_folder
+          path: src/js/
 
   deploy:
     needs: [ build_css, build_js ]
@@ -61,9 +65,33 @@ jobs:
       - name: Checkout git source branch
         uses: actions/checkout@master
 
+      - name: Download CSS folder artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: css_folder
+
+      - name: Download JS folder artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: js_folder
+
+      - name: List files
+        run: ls -R
+
       - name: Deploy to Firebase
         uses: w9jds/firebase-action@master
         with:
           args: deploy --only hosting
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+#  
+#  http_request:
+#    needs: deploy
+#    runs-on: ubuntu-latest
+#
+#    steps:
+#      - name: Make Request
+#        id: request
+#        uses: fjogeleit/http-request-action@v1
+#        with:
+#          url: "http://yoursite.com/api"
