@@ -46,7 +46,7 @@ jobs:
 
       - name: Move compiled CSS to folder
         run: |
-          sudo mkdir -vp /src/css
+          sudo mkdir -vp src/css
           mv /tmp/css/* src/css
 
       - name: Deploy to Firebase
