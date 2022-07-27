@@ -106,9 +106,5 @@ function onPageLoad() {
     });
 }
 
-function testCD(): void {
-    console.log('Yay, it worked!!');
-}
-
 const loader = new Loader();
 onPageLoad();
