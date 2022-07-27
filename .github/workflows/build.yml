@@ -26,6 +26,9 @@ jobs:
       - name: Make destination directory for compiled CSS
         run: mkdir -vp /tmp/css
 
+      - name: Read files
+        run: ls src/
+
       - name: Compile SCSS files to CSS
         uses: gha-utilities/sass-build@v0.4.9
         with:
@@ -45,6 +48,4 @@ jobs:
           fetch-depth: 1
 
       - name: Move compiled CSS to path within deploy branch
-        run: |
-          mv /tmp/css/* src/css
-          ls -a src/
+        run: mv /tmp/css/* src/css
