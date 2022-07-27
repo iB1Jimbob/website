@@ -69,11 +69,13 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: css_folder
+          path: src/css
 
       - name: Download JS folder artifact
         uses: actions/download-artifact@v3
         with:
           name: js_folder
+          path: src/js
 
       - name: List files
         run: ls -R
